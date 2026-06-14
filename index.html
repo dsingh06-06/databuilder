@@ -18,7 +18,7 @@
   --red: #ef4444;
   --text: #f1f5f9;
   --text2: #94a3b8;
-  --text3: #475569;
+  --text3: #f1f5f9;
   --sans: 'DM Sans', sans-serif;
   --display: 'Syne', sans-serif;
   --mono: 'DM Mono', monospace;
@@ -1010,7 +1010,6 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
     <li><a href="#inventory">Stock Inventory</a></li>
     <li><a href="#guide">Guide</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="#faq">Contact</a></li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">Open App ↗</button>
 </nav>
@@ -1027,7 +1026,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
   </h1>
 
   <p class="hero-sub">
-    DataForge is a fully self-contained app — design tables, enter data, run cross-table aggregates, customise dashboards, and export to Excel. Everything saved locally. Nothing uploaded anywhere.
+    DataForge is a fully self-contained HTML app — design tables, enter data, run cross-table aggregates, customise dashboards, and export to Excel. Everything saved locally. Nothing uploaded anywhere.
   </p>
 
   <div class="hero-actions">
@@ -1085,7 +1084,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
                 </thead>
                 <tbody>
                   <tr><td>1</td><td>Mango</td><td class="inv-in">150</td><td class="inv-out">50</td><td class="calc">100</td><td><span class="mock-badge ok">OK</span></td></tr>
-                  <tr><td>3</td><td>Onion</td><td class="inv-in">350</td><td class="inv-out">140</td><td class="calc">210</td><td><span class="mock-badge ok">OK</span></td></tr>
+                  <tr class="low"><td>2</td><td>Onion</td><td class="inv-in">120</td><td class="inv-out">118</td><td class="calc" style="color:#ef4444">2</td><td><span class="mock-badge low">LOW</span></td></tr>
                   <tr><td>3</td><td>Rice</td><td class="inv-in">200</td><td class="inv-out">110</td><td class="calc">90</td><td><span class="mock-badge ok">OK</span></td></tr>
                   <tr><td>4</td><td>Milk</td><td class="inv-in">150</td><td class="inv-out">90</td><td class="cts">60</td><td><span class="mock-badge ok">OK</span></td></tr>
                 </tbody>
@@ -1099,6 +1098,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 
   <!-- Callout strip below mockup -->
   <div class="callout-strip" style="max-width:1000px;width:100%;margin-top:20px;text-align:left">
+    <div class="callout-card"><strong>🔴 Alert Threshold</strong>Rows turn red automatically when stock falls below your configured minimum</div>
     <div class="callout-card violet"><strong>⊞∑ Cross-Table Aggregate</strong>Balance auto-computed from Stock In minus Stock Out — live on every save</div>
     <div class="callout-card green"><strong>📊 Custom Dashboard Widgets</strong>Add any table's Sum / Count / Average as a KPI card with one click</div>
   </div>
@@ -1110,7 +1110,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
   <div class="stat-item"><span class="stat-val">5</span><span class="stat-lbl">Save Methods</span></div>
   <div class="stat-item"><span class="stat-val">∞</span><span class="stat-lbl">Tables</span></div>
   <div class="stat-item"><span class="stat-val">0</span><span class="stat-lbl">Dependencies</span></div>
-  <div class="stat-item"><span class="stat-val">1</span><span class="stat-lbl">EXE File</span></div>
+  <div class="stat-item"><span class="stat-val">1</span><span class="stat-lbl">HTML File</span></div>
 </div>
 
 <!-- FEATURES -->
@@ -1143,6 +1143,12 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <div class="feature-icon amber">🕐✓</div>
         <div class="feature-title">Auto Timestamp</div>
         <div class="feature-desc">Fields that auto-fill on Create, Update, or both. No manual date entry needed. Displayed as formatted local date-time in data view.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon red">⚠</div>
+        <div class="feature-title">Alert Thresholds</div>
+        <div class="feature-desc">Set a minimum value on any numeric field. Rows glow red when below threshold, amber when within 50% above it. Perfect for low-stock monitoring.</div>
       </div>
 
       <div class="feature-card">
@@ -1254,7 +1260,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
           <tbody>
             <tr><td>Mango</td><td class="inv-in">150</td><td class="inv-out">50</td><td class="inv-bal">100</td><td><span class="inv-badge-ok">OK</span></td></tr>
             <tr><td>Banana</td><td class="inv-in">80</td><td class="inv-out">35</td><td class="inv-bal">45</td><td><span class="inv-badge-ok">OK</span></td></tr>
-            
+            <tr class="alert"><td>Onion</td><td class="inv-in">120</td><td class="inv-out">118</td><td class="inv-bal low">2</td><td><span class="inv-badge-low">LOW STOCK</span></td></tr>
             <tr><td>Rice</td><td class="inv-in">200</td><td class="inv-out">110</td><td class="inv-bal">90</td><td><span class="inv-badge-ok">OK</span></td></tr>
             <tr><td>Milk</td><td class="inv-in">150</td><td class="inv-out">90</td><td class="inv-bal">60</td><td><span class="inv-badge-ok">OK</span></td></tr>
             <tr><td>Turmeric</td><td class="inv-in">30</td><td class="inv-out">5</td><td class="inv-bal">25</td><td><span class="inv-badge-ok">OK</span></td></tr>
@@ -1284,9 +1290,26 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
             <div class="inv-point-desc">Add Papaya to Products — it immediately appears in Stock In and Stock Out dropdown menus. No manual updating of choices.</div>
           </div>
         </div>
-      
+        <div class="inv-point">
+          <div class="inv-point-icon a">⚠</div>
+          <div>
+            <div class="inv-point-title">Low-stock alerts</div>
+            <div class="inv-point-desc">Set a reorder threshold per product. Rows glow red when below, amber when approaching. Visible at a glance in the data view.</div>
+          </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT -->
+<section style="background: var(--surface)">
+  <div class="container">
+    <div class="section-label">Gallery</div>
+    <h2>See DataForge in Action</h2>
+
+      <div class="preview-frame"><img src="expire.png" alt="License Expiry Tracking" style= "width:100%; display:block;"></div>
+      <div class="preview-frame"><img src="stock balance.png" alt="Stock Balance View" style="width:100%; display:block;"></div>
     </div>
   </div>
 </section>
@@ -1319,7 +1342,11 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <div class="save-title">Export to Excel</div>
         <div class="save-desc">Export any table or all tables as a clean .xlsx file — one sheet per table, headers + data only. Download from the toolbar.</div>
       </div>
-      
+      <div class="save-card">
+        <span class="save-icon">🚀</span>
+        <div class="save-title">Export Data Entry App</div>
+        <div class="save-desc">Generate a stripped runtime version — no designer, just data entry. Share a single HTML file with your team.</div>
+      </div>
       <div class="save-card">
         <span class="save-icon">📤</span>
         <div class="save-title">Import from Excel / JSON</div>
@@ -1414,6 +1441,29 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         </div>
       </div>
 
+      <div class="guide-block">
+        <div class="guide-block-header">🚀 Export Data Entry App</div>
+        <div class="guide-block-body">
+          <div class="guide-step">
+            <div class="guide-step-num">1</div>
+            <div class="guide-step-text">Click <strong>🚀 Export Data Entry App</strong> in the header. The app must be served via HTTP (VS Code Live Server, or any web server) — not opened directly by double-click.</div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">2</div>
+            <div class="guide-step-text">The exported file contains all your tables, records, and dashboard widgets. Table Builder, Form Manager, and designer tools are stripped out.</div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">3</div>
+            <div class="guide-step-text"><strong>Alternative:</strong> Since the code is section-tagged, manually delete <code>§HTML-08</code>, <code>§HTML-09</code>, <code>§HTML-11</code>, designer modals, and set <code>IS_DATA_ENTRY_ONLY = true</code>.</div>
+          </div>
+          <div class="guide-step">
+            <div class="guide-step-num">4</div>
+            <div class="guide-step-text">Share the single HTML file. Recipients open it in any browser — no installation, no server needed to use the runtime version.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SPEC TABLE -->
@@ -1427,7 +1477,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <tr><th>Spec</th><th>Detail</th></tr>
       </thead>
       <tbody>
-        <tr><td>Deployment</td><td>Single .exe file — no build step, no npm, no server required</td></tr>
+        <tr><td>Deployment</td><td>Single .html file — no build step, no npm, no server required</td></tr>
         <tr><td>Storage</td><td>IndexedDB (primary) → localStorage (fallback) → File System Access API (Ctrl+S to .xlsx)</td></tr>
         <tr><td>Libraries</td><td>SheetJS (xlsx) via CDN — only external dependency for Excel read/write</td></tr>
         <tr><td>Field Types</td><td>22 types including 3 computed types (Calculated, Cross-Table Agg, Auto Timestamp)</td></tr>
@@ -1435,8 +1485,10 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <tr><td>Themes</td><td>Dark (default) and Light — toggle in header</td></tr>
         <tr><td>Print / Report</td><td>Per-record print with company logo, address, configurable layout</td></tr>
         <tr><td>Import</td><td>JSON workspace, Excel (.xlsx), CSV</td></tr>
-        <tr><td>Export</td><td>JSON workspace, Excel (per-table or all), CSV</td></tr>
+        <tr><td>Export</td><td>JSON workspace, Excel (per-table or all), CSV, Data Entry App (.html)</td></tr>
+        <tr><td>Code structure</td><td>Section-tagged (§CSS-01…§JS-43) for easy manual editing and maintenance</td></tr>
         <tr><td>File size</td><td>~171KB uncompressed — loads instantly</td></tr>
+        <tr><td>Browser support</td><td>Chrome / Edge (full) · Firefox (full, no File System Access API) · Safari (full)</td></tr>
       </tbody>
     </table>
   </div>
@@ -1457,7 +1509,11 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <div class="faq-q">What happens if I clear my browser data?</div>
         <div class="faq-a">IndexedDB and localStorage will be cleared. Always export a JSON or Excel backup before clearing browser data. The Ctrl+S pinned .xlsx file on your disk is unaffected.</div>
       </div>
-        <div class="faq-item">
+      <div class="faq-item">
+        <div class="faq-q">Why does Export Data Entry App require a web server?</div>
+        <div class="faq-a">The export uses <code>fetch(window.location.href)</code> to read the original source file. Browsers block <code>fetch()</code> on <code>file://</code> URLs for security reasons. Use VS Code's Live Server extension, Python's <code>python -m http.server</code>, or any static file server. The exported runtime app can be opened directly by double-click without a server.</div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q">Can I use this for stock inventory without setting it up manually?</div>
         <div class="faq-a">Yes — load the included <strong>sample_inventory.json</strong> file via Import → JSON. It contains Products, Stock In, Stock Out, and Stock Balance tables with fully wired cross-table aggregates, 8 products, sample transactions, and 4 dashboard widgets pre-configured.</div>
       </div>
@@ -1473,10 +1529,95 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <div class="faq-q">Can I handle 1 million records?</div>
         <div class="faq-a">Not comfortably. This app is browser-based and stores everything in memory. It performs smoothly up to ~5,000 records per table, usably to ~20,000, and will lag beyond that. For millions of records you'd need a backend database (PostgreSQL, MySQL) with this app as a frontend — a fundamentally different architecture.</div>
       </div>
-     
+      <div class="faq-item">
+        <div class="faq-q">Can I edit the HTML code directly?</div>
+        <div class="faq-a">Yes — the entire app is one HTML file with section markers throughout (§CSS-01 through §JS-43, §HTML-01 through §MODAL-13). Open in any text editor, find the section, edit, save. Each section is clearly labelled with what it controls.</div>
+      </div>
     </div>
-  </div>
 </section>
+
+<style>
+/* Elegant, Minimalist Table Styling */
+.comparison-container {
+    max-width: 950px;
+    margin: 60px auto;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.comp-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px; /* Elegant breathing room between rows */
+}
+
+.comp-table th {
+    color: #94a3b8;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.75rem;
+    padding: 20px;
+}
+
+.comp-table td {
+    padding: 24px;
+    background: #0d1117;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.comp-table td:first-child {
+    border-left: 1px solid rgba(255,255,255,0.05);
+    border-radius: 12px 0 0 12px;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+.comp-table td:last-child {
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-radius: 0 12px 12px 0;
+    color: #fffff;
+}
+
+.highlight-df {
+    color: #00e5ff;
+    font-weight: 700;
+    text-shadow: 0 0 15px rgba(0,229,255,0.3);
+}
+</style>
+
+<div class="comparison-container">
+    <table class="comp-table">
+        <thead>
+            <tr>
+                <th style="text-align:left">Feature</th>
+                <th>DataForge</th>
+                <th>Airtable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data Privacy</td>
+                <td class="highlight-df">Local-First (Private)</td>
+                <td>Cloud-Dependent</td>
+            </tr>
+            <tr>
+                <td>Connectivity</td>
+                <td class="highlight-df">Internet Required</td>
+                <td>Always-Online</td>
+            </tr>
+            <tr>
+                <td>Pricing</td>
+                <td class="highlight-df">One Time</td>
+                <td>Subscription-based</td>
+            </tr>
+            <tr>
+                <td>Setup Experience</td>
+                <td class="highlight-df">Instantaneous</td>
+                <td>Configuration-Heavy</td>
+            </tr>
+        </tbody>
+    </table>
 
 <!-- CTA -->
 <section id="download" class="cta-section">
@@ -1485,26 +1626,24 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
   <h2 class="reveal">One file.<br>Full database.</h2>
   <p class="reveal">No signup. No installation. No cloud. Just download and open.</p>
   <div class="hero-actions reveal">
-    <a href="https://drive.proton.me/urls/A79HJHF99R#WSg59x6IrAtW" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-    ⬇ Download DataForge.exe
+    <a href="https://drive.proton.me/urls/A79HJHF99R#WSg59x6IrAtW" download="DataForge.html">
+  <button class="btn-primary">⬇ Download DataForge.html</button>
 </a>
-    <a href="https://drive.proton.me/urls/0YM3X3XCV0#H3xUaEB0vUEK" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-    ⬇ Download sample_inventory.json
+<a href="https://drive.proton.me/urls/0YM3X3XCV0#H3xUaEB0vUEK" download="DataForge.html">
+    <button class="btn-ghost">⬇ Download sample_inventory.json</button>
 </a>
+</div>
+<div style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--green);">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+  <span style="font-family: var(--mono); font-size: 0.8rem;">100% Virus-Free · Safe & Verified</span>
+
   </div>
   <p style="font-size:0.75rem;color:var(--text3);margin-top:24px;font-family:var(--mono)" class="reveal">Open in Chrome, Edge, or Firefox · No internet required after first load</p>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <div class="container">
-    <div class="section-label reveal">Contacts</div>
-    <h2 class="reveal">xionix555@protonmail.com</h2>
-</section>
-
 <!-- FOOTER -->
 <footer>
-  <div><strong>DataForge</strong> — Standalone-based database builder</div>
+  <div><strong>DataForge</strong> — Windows-based database builder</div>
   <div>Built with SheetJS · Stores locally · Zero cloud</div>
   <div style="font-family:var(--mono);font-size:0.65rem">v1.0 · Single HTML file · 171KB</div>
 </footer>
