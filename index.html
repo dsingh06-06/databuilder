@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
+<!-- saved from url=(0042)https://dsingh06-06.github.io/databuilder/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DataForge — Build Databases Without Code</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="./DataForge — Build Databases Without Code_files/css2" rel="stylesheet">
 <style>
 :root {
   --bg: #060810;
@@ -47,6 +47,54 @@ body::before {
   opacity: 0.4;
 }
 
+/* ── CONTACT BUTTONS ── */
+.contact-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  font-family: var(--sans);
+  border: 1px solid transparent;
+}
+
+.contact-btn.email {
+  background: rgba(124, 58, 237, 0.15);
+  color: #a78bfa;
+  border-color: rgba(124, 58, 237, 0.2);
+}
+.contact-btn.email:hover {
+  background: rgba(124, 58, 237, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.2);
+}
+
+.contact-btn.whatsapp {
+  background: rgba(37, 211, 102, 0.15);
+  color: #34d399;
+  border-color: rgba(37, 211, 102, 0.2);
+}
+.contact-btn.whatsapp:hover {
+  background: rgba(37, 211, 102, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.2);
+}
+
+.contact-btn .icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
 /* ── NAV ── */
 nav {
   position: fixed;
@@ -59,6 +107,8 @@ nav {
   background: rgba(6,8,16,0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .nav-logo {
@@ -78,6 +128,8 @@ nav {
   display: flex;
   gap: 32px;
   list-style: none;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-links a {
@@ -923,9 +975,32 @@ footer {
   justify-content: space-between;
   font-size: 0.78rem;
   color: var(--text3);
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 footer strong { color: var(--cyan); font-family: var(--display); font-weight: 700; }
+
+.footer-contact {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-contact a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.footer-contact a:hover { color: var(--cyan); }
+.footer-contact a.whatsapp:hover { color: #34d399; }
+.footer-contact a.email:hover { color: #a78bfa; }
 
 /* ── SCROLL REVEAL ── */
 .reveal {
@@ -993,9 +1068,11 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
   .guide-grid { grid-template-columns: 1fr; }
   .save-grid { grid-template-columns: 1fr; }
   .stat-strip { gap: 32px; }
-  footer { flex-direction: column; gap: 8px; text-align: center; }
+  footer { flex-direction: column; text-align: center; }
   h1 { letter-spacing: -1px; }
   .callout-strip { grid-template-columns: 1fr; }
+  .contact-buttons { flex-wrap: wrap; justify-content: center; }
+  .footer-contact { justify-content: center; }
 }
 </style>
 </head>
@@ -1010,6 +1087,16 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
     <li><a href="#inventory">Stock Inventory</a></li>
     <li><a href="#guide">Guide</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li>
+      <a href="mailto:xionix555@protonmail.com" class="contact-btn email" style="padding:6px 14px;font-size:0.72rem;">
+        <span class="icon">✉</span> Email
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/919804711241?text=Hi%21%20I%27m%20interested%20in%20DataForge" target="_blank" class="contact-btn whatsapp" style="padding:6px 14px;font-size:0.72rem;">
+        <span class="icon">💬</span> WhatsApp
+      </a>
+    </li>
   </ul>
   <button class="nav-cta" onclick="document.getElementById('download').scrollIntoView({behavior:'smooth'})">Open App ↗</button>
 </nav>
@@ -1026,7 +1113,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
   </h1>
 
   <p class="hero-sub">
-    DataForge is a fully self-contained HTML app — design tables, enter data, run cross-table aggregates, customise dashboards, and export to Excel. Everything saved locally. Nothing uploaded anywhere.
+    DataForge is a fully self-contained APP — design tables, enter data, run cross-table aggregates, customise dashboards, and export to Excel. Everything saved locally. Nothing uploaded anywhere.
   </p>
 
   <div class="hero-actions">
@@ -1105,22 +1192,22 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 </div>
 
 <!-- STAT STRIP -->
-<div class="stat-strip reveal">
+<div class="stat-strip reveal visible">
   <div class="stat-item"><span class="stat-val">22</span><span class="stat-lbl">Field Types</span></div>
   <div class="stat-item"><span class="stat-val">5</span><span class="stat-lbl">Save Methods</span></div>
   <div class="stat-item"><span class="stat-val">∞</span><span class="stat-lbl">Tables</span></div>
   <div class="stat-item"><span class="stat-val">0</span><span class="stat-lbl">Dependencies</span></div>
-  <div class="stat-item"><span class="stat-val">1</span><span class="stat-lbl">HTML File</span></div>
+  <div class="stat-item"><span class="stat-val">1</span><span class="stat-lbl"> File</span></div>
 </div>
 
 <!-- FEATURES -->
 <section id="features">
   <div class="container">
-    <div class="section-label reveal">Core Features</div>
-    <h2 class="reveal">Everything in<br>one file</h2>
-    <p class="section-sub reveal">No backend, no database server, no installation. Download once, run forever.</p>
+    <div class="section-label reveal visible">Core Features</div>
+    <h2 class="reveal visible">Everything in<br>one file</h2>
+    <p class="section-sub reveal visible">No backend, no database server, no installation. Download once, run forever.</p>
 
-    <div class="features-grid reveal">
+    <div class="features-grid reveal visible">
       <div class="feature-card">
         <div class="feature-icon cyan">⊞</div>
         <div class="feature-title">Visual Table Builder</div>
@@ -1165,22 +1252,22 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 
       <div class="feature-card">
         <div class="feature-icon green">↺</div>
-        <div class="feature-title">Auto-Sync & Recalc</div>
+        <div class="feature-title">Auto-Sync &amp; Recalc</div>
         <div class="feature-desc">When a new record is saved, all linked tables update automatically. Use ↺ Recalc button to force-refresh all cross-table values, calculated fields and timestamps.</div>
       </div>
 
       
   </div>
-</section>
+</div></section>
 
 <!-- FIELD TYPES -->
 <section id="field-types" class="field-types-section">
   <div class="container">
-    <div class="section-label reveal">Field Types</div>
-    <h2 class="reveal">22 field types<br>for every need</h2>
-    <p class="section-sub reveal">From simple text to cross-table aggregates — every type is supported with proper input, validation, and display formatting.</p>
+    <div class="section-label reveal visible">Field Types</div>
+    <h2 class="reveal visible">22 field types<br>for every need</h2>
+    <p class="section-sub reveal visible">From simple text to cross-table aggregates — every type is supported with proper input, validation, and display formatting.</p>
 
-    <div class="field-type-grid reveal">
+    <div class="field-type-grid reveal visible">
       <div class="field-chip"><span class="field-chip-icon">Aa</span>Text (Short)</div>
       <div class="field-chip"><span class="field-chip-icon">¶</span>Long Text</div>
       <div class="field-chip"><span class="field-chip-icon">#</span>Number (Int)</div>
@@ -1205,7 +1292,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
       <div class="field-chip field-chip-special"><span class="field-chip-icon">🕐✓</span>Auto Timestamp</div>
     </div>
 
-    <div style="margin-top:32px;padding:20px 24px;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2);border-radius:10px" class="reveal">
+    <div style="margin-top:32px;padding:20px 24px;background:rgba(124,58,237,0.06);border:1px solid rgba(124,58,237,0.2);border-radius:10px" class="reveal visible">
       <div style="font-family:var(--mono);font-size:0.65rem;color:var(--violet);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">Special Field Types</div>
       <p style="font-size:0.85rem;color:var(--text2);font-weight:300;line-height:1.6">The last three field types — <strong style="color:var(--text)">Calculated</strong>, <strong style="color:var(--text)">Cross-Table Aggregate</strong>, and <strong style="color:var(--text)">Auto Timestamp</strong> — are computed automatically on every save. They appear read-only in the data entry form and update live in the data view. No manual input required.</p>
     </div>
@@ -1215,10 +1302,10 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 <!-- HOW IT WORKS -->
 <section>
   <div class="container">
-    <div class="section-label reveal">Workflow</div>
-    <h2 class="reveal">From zero to<br>working database in minutes</h2>
+    <div class="section-label reveal visible">Workflow</div>
+    <h2 class="reveal visible">From zero to<br>working database in minutes</h2>
 
-    <div class="steps reveal">
+    <div class="steps reveal visible">
       <div class="step-card">
         <div class="step-num">1</div>
         <div class="step-title">Create a Table</div>
@@ -1236,7 +1323,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
       </div>
       <div class="step-card">
         <div class="step-num">4</div>
-        <div class="step-title">Save & Share</div>
+        <div class="step-title">Save &amp; Share</div>
         <div class="step-desc">Auto-saves to IndexedDB. Ctrl+S to a .xlsx file. Export a runtime app for your team to use without the designer.</div>
       </div>
     </div>
@@ -1246,11 +1333,11 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 <!-- STOCK INVENTORY -->
 <section id="inventory" class="inventory-section">
   <div class="container">
-    <div class="section-label reveal">Use Case</div>
-    <h2 class="reveal">Built for stock<br>inventory out of the box</h2>
-    <p class="section-sub reveal">DataForge ships with a complete sample inventory workspace — Products, Stock In, Stock Out, and a live Stock Balance that auto-computes itself.</p>
+    <div class="section-label reveal visible">Use Case</div>
+    <h2 class="reveal visible">Built for stock<br>inventory out of the box</h2>
+    <p class="section-sub reveal visible">DataForge ships with a complete sample inventory workspace — Products, Stock In, Stock Out, and a live Stock Balance that auto-computes itself.</p>
 
-    <div class="inventory-grid reveal">
+    <div class="inventory-grid reveal visible">
       <div class="inventory-visual">
         <div class="inv-header">⊞ Stock Balance — Live View</div>
         <table class="inv-table">
@@ -1308,23 +1395,23 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
     <div class="section-label">Gallery</div>
     <h2>See DataForge in Action</h2>
 
-      <div class="preview-frame"><img src="expire.png" alt="License Expiry Tracking" style= "width:100%; display:block;"></div>
-      <div class="preview-frame"><img src="stock balance.png" alt="Stock Balance View" style="width:100%; display:block;"></div>
+      <div class="preview-frame"><img src="./DataForge — Build Databases Without Code_files/expire.png" alt="License Expiry Tracking" style="width:100%; display:block;"></div>
+      <div class="preview-frame"><img src="./DataForge — Build Databases Without Code_files/stock balance.png" alt="Stock Balance View" style="width:100%; display:block;"></div>
   </div>
-</div>
-    <div class="preview-frame"><img src="twopanel.jpg" alt="APP Panel View" style="width:100%; display:block;"></div>
-    </div>
-  </div>
+
+    <div class="preview-frame"><img src="./DataForge — Build Databases Without Code_files/twopanel.jpg" alt="APP Panel View" style="width:100%; display:block;"></div>
+    
+  
 </section>
 
 <!-- SAVE & EXPORT -->
 <section>
   <div class="container">
-    <div class="section-label reveal">Save & Export</div>
-    <h2 class="reveal">5 ways to<br>save your work</h2>
-    <p class="section-sub reveal">Your data never leaves your machine unless you choose to export it.</p>
+    <div class="section-label reveal visible">Save &amp; Export</div>
+    <h2 class="reveal visible">5 ways to<br>save your work</h2>
+    <p class="section-sub reveal visible">Your data never leaves your machine unless you choose to export it.</p>
 
-    <div class="save-grid reveal">
+    <div class="save-grid reveal visible">
       <div class="save-card">
         <span class="save-icon">⚡</span>
         <div class="save-title">Auto-save</div>
@@ -1348,7 +1435,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
       <div class="save-card">
         <span class="save-icon">🚀</span>
         <div class="save-title">Export Data Entry App</div>
-        <div class="save-desc">Generate a stripped runtime version — no designer, just data entry. Share a single HTML file with your team.</div>
+        <div class="save-desc">Generate a stripped runtime version — no designer, just data entry. Share a single APP file with your team.</div>
       </div>
       <div class="save-card">
         <span class="save-icon">📤</span>
@@ -1362,10 +1449,10 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 <!-- QUICK START GUIDE -->
 <section id="guide" class="guide-section">
   <div class="container">
-    <div class="section-label reveal">Quick Start Guide</div>
-    <h2 class="reveal">Step-by-step<br>setup guides</h2>
+    <div class="section-label reveal visible">Quick Start Guide</div>
+    <h2 class="reveal visible">Step-by-step<br>setup guides</h2>
 
-    <div class="guide-grid reveal">
+    <div class="guide-grid reveal visible">
       <div class="guide-block">
         <div class="guide-block-header">📦 Setup Stock Inventory</div>
         <div class="guide-block-body">
@@ -1449,19 +1536,12 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <div class="guide-block-body">
           <div class="guide-step">
             <div class="guide-step-num">1</div>
-            <div class="guide-step-text">Click <strong>🚀 Export Data Entry App</strong> in the header. The app must be served via HTTP (VS Code Live Server, or any web server) — not opened directly by double-click.</div>
-          </div>
-          <div class="guide-step">
-            <div class="guide-step-num">2</div>
             <div class="guide-step-text">The exported file contains all your tables, records, and dashboard widgets. Table Builder, Form Manager, and designer tools are stripped out.</div>
           </div>
           <div class="guide-step">
-            <div class="guide-step-num">3</div>
-            <div class="guide-step-text"><strong>Alternative:</strong> Since the code is section-tagged, manually delete <code>§HTML-08</code>, <code>§HTML-09</code>, <code>§HTML-11</code>, designer modals, and set <code>IS_DATA_ENTRY_ONLY = true</code>.</div>
-          </div>
           <div class="guide-step">
-            <div class="guide-step-num">4</div>
-            <div class="guide-step-text">Share the single HTML file. Recipients open it in any browser — no installation, no server needed to use the runtime version.</div>
+            <div class="guide-step-num">2</div>
+            <div class="guide-step-text">Share the single .exe file. Recipients open it in Windows System — no installation, no server needed to use the runtime version.</div>
           </div>
         </div>
       </div>
@@ -1472,15 +1552,15 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 <!-- SPEC TABLE -->
 <section>
   <div class="container">
-    <div class="section-label reveal">Technical Specs</div>
-    <h2 class="reveal">What's inside</h2>
+    <div class="section-label reveal visible">Technical Specs</div>
+    <h2 class="reveal visible">What's inside</h2>
 
-    <table class="spec-table reveal">
+    <table class="spec-table reveal visible">
       <thead>
         <tr><th>Spec</th><th>Detail</th></tr>
       </thead>
       <tbody>
-        <tr><td>Deployment</td><td>Single .html file — no build step, no npm, no server required</td></tr>
+        <tr><td>Deployment</td><td>Single .exe file — no build step, no npm, no server required</td></tr>
         <tr><td>Storage</td><td>IndexedDB (primary) → localStorage (fallback) → File System Access API (Ctrl+S to .xlsx)</td></tr>
         <tr><td>Libraries</td><td>SheetJS (xlsx) via CDN — only external dependency for Excel read/write</td></tr>
         <tr><td>Field Types</td><td>22 types including 3 computed types (Calculated, Cross-Table Agg, Auto Timestamp)</td></tr>
@@ -1488,7 +1568,7 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <tr><td>Themes</td><td>Dark (default) and Light — toggle in header</td></tr>
         <tr><td>Print / Report</td><td>Per-record print with company logo, address, configurable layout</td></tr>
         <tr><td>Import</td><td>JSON workspace, Excel (.xlsx), CSV</td></tr>
-        <tr><td>Export</td><td>JSON workspace, Excel (per-table or all), CSV, Data Entry App (.html)</td></tr>
+        <tr><td>Export</td><td>JSON workspace, Excel (per-table or all), CSV, Data Entry App </td></tr>
         <tr><td>Code structure</td><td>Section-tagged (§CSS-01…§JS-43) for easy manual editing and maintenance</td></tr>
         <tr><td>File size</td><td>~171KB uncompressed — loads instantly</td></tr>
         <tr><td>Browser support</td><td>Chrome / Edge (full) · Firefox (full, no File System Access API) · Safari (full)</td></tr>
@@ -1500,10 +1580,10 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 <!-- FAQ -->
 <section id="faq">
   <div class="container">
-    <div class="section-label reveal">FAQ</div>
-    <h2 class="reveal">Common questions</h2>
+    <div class="section-label reveal visible">FAQ</div>
+    <h2 class="reveal visible">Common questions</h2>
 
-    <div class="faq-list reveal">
+    <div class="faq-list reveal visible">
       <div class="faq-item">
         <div class="faq-q">Where is my data stored?</div>
         <div class="faq-a">All data is stored locally in your browser's IndexedDB (with localStorage fallback). Nothing is uploaded to any server. If you use Ctrl+S with a pinned file, data is written directly to your disk. You can also export to JSON or Excel at any time for portable backups.</div>
@@ -1532,12 +1612,9 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
         <div class="faq-q">Can I handle 1 million records?</div>
         <div class="faq-a">Not comfortably. This app is browser-based and stores everything in memory. It performs smoothly up to ~5,000 records per table, usably to ~20,000, and will lag beyond that. For millions of records you'd need a backend database (PostgreSQL, MySQL) with this app as a frontend — a fundamentally different architecture.</div>
       </div>
-      <div class="faq-item">
-        <div class="faq-q">Can I edit the HTML code directly?</div>
-        <div class="faq-a">Yes — the entire app is one HTML file with section markers throughout (§CSS-01 through §JS-43, §HTML-01 through §MODAL-13). Open in any text editor, find the section, edit, save. Each section is clearly labelled with what it controls.</div>
-      </div>
-    </div>
-</section>
+      
+      
+</div></section>
 
 <style>
 /* Elegant, Minimalist Table Styling */
@@ -1625,28 +1702,33 @@ footer strong { color: var(--cyan); font-family: var(--display); font-weight: 70
 <!-- CTA -->
 <section id="download" class="cta-section">
   <div class="cta-glow"></div>
-  <div class="section-label reveal" style="justify-content:center">Ready to start</div>
-  <h2 class="reveal">One file.<br>Full database.</h2>
-  <p class="reveal">No signup. No installation. No cloud. Just download and open.</p>
-  <div class="hero-actions reveal">
-  <div class="hero-actions reveal">
+  <div class="section-label reveal visible" style="justify-content:center">Ready to start</div>
+  <h2 class="reveal visible">One file.<br>Full database.</h2>
+  <p class="reveal visible">No signup. No installation. No cloud. Just download and open.</p>
+  <div class="hero-actions reveal visible">
     <a href="https://drive.proton.me/urls/D7MM3B8WS4#Y8zboXqw9fdQ" class="btn-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
-  <button class="btn-primary">⬇ Download DataForge</button>
+      ⬇ Download DataForge
     </a>
     <button class="btn-ghost">⬇ Download sample_inventory.json</button>
-
-</div>
-<div style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--green);">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-  <span style="font-family: var(--mono); font-size: 0.8rem;">100% Virus-Free · Safe & Verified</span>
-<div></div>
-  <p style="font-size:0.75rem;color:var(--text3);margin-top:24px;font-family:var(--mono)" class="reveal">Open in Chrome, Edge, or Firefox · No internet required after first load</p>
+  </div>
+  <div style="margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--green); flex-wrap: wrap;">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"></path></svg>
+    <span style="font-family: var(--mono); font-size: 0.8rem;">100% Virus-Free · Safe &amp; Verified</span>
+  </div>
+  <p style="font-size:0.75rem;color:var(--text3);margin-top:24px;font-family:var(--mono)" class="reveal visible">Open in Chrome, Edge, or Firefox · No internet required after first load</p>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div><strong>DataForge</strong> — Windows-based database builder</div>
-  <div>Built with SheetJS · Stores locally · Zero cloud</div>
+  <div class="footer-contact">
+    <a href="mailto:xionix555@protonmail.com" class="email">
+      ✉ xionix555@protonmail.com
+    </a>
+    <a href="https://wa.me/919804711241?text=Hi%21%20I%27m%20interested%20in%20DataForge" target="_blank" class="whatsapp">
+      💬 +91 9804711241
+    </a>
+  </div>
   <div style="font-family:var(--mono);font-size:0.65rem">v1.0 · Single file · 136MB</div>
 </footer>
 
@@ -1705,5 +1787,6 @@ document.querySelectorAll('.mock-table tbody tr').forEach(tr => {
   tr.addEventListener('mouseleave', () => { if(!tr.classList.contains('low')) tr.style.background = ''; });
 });
 </script>
-</body>
-</html>
+
+
+</div></body></html>
